@@ -1,0 +1,74 @@
+{% extends "superadmin/base.html" %} {% load crispy_forms_tags %} {% block content %} <div class="sheetsButton">
+	<a type="button" href={% url 'download-data' %} class="btn butons text-white">Add Employee from sheet</a>
+</div>
+<div class="container h-100">
+	<div class="d-flex justify-content-center h-100">
+		<div class="user_card">
+			<div class="d-flex justify-content-center">
+				<h3 id="form-title">add employee</h3>
+			</div>
+			<form method="POST" action=""> {% csrf_token %} <div class="input-group mb-3">
+					<div class="input-group-append">
+						<span class="input-group-text"><i class="fas fa-user"></i></span>
+					</div>
+					{{form.first_name}}
+				</div>
+				<div class="input-group mb-3">
+					<div class="input-group-append">
+						<span class="input-group-text"><i class="fas fa-user"></i></span>
+					</div>
+					{{form.last_name}}
+				</div>
+				<div class="input-group mb-3">
+					<div class="input-group-append">
+						<span class="input-group-text"><i class="fas fa-home"></i></span>
+					</div>
+					<input type="text" class="form-control" name='city'>
+				</div>
+				<div class="input-group mb-3">
+					<div class="input-group-append">
+						<span class="input-group-text"><i class="fas fa-mobile"></i></span>
+					</div>
+					<input type="number" class="form-control" name='eid'>
+				</div>
+				<div class="input-group mb-3">
+					<div class="input-group-append">
+						<span class="input-group-text"><i class="fas fa-user"></i></span>
+					</div>
+					{{form.username}}
+				</div>
+				<div class="input-group mb-2">
+					<div class="input-group-append">
+						<span class="input-group-text"><i class="fas fa-key"></i></span>
+					</div>
+					{{form.password1}}
+				</div>
+				<div class="input-group mb-2">
+					<div class="input-group-append">
+						<span class="input-group-text"><i class="fas fa-key"></i></span>
+					</div>
+					{{form.password2}}
+				</div>
+				<div class="input-group mb-2">
+					<div class="input-group-append">
+						<span class="input-group-text"><i class="fas fa-user"></i></span>
+					</div>
+					<select class="custom-select form-control" name='group_name'> {% for group in groups %} <option
+							id="{{ group.name }}" name="{{ group.name }}" value="{{group.name}}">{{ group.name }}
+						</option> {% endfor %} </select>
+				</div>
+				{{form.errors}}
+				<div class="d-flex justify-content-center mt-3 login_container">
+					<input class="btn login_btn" type="submit" value="register employee">
+				</div> {% if messages %} {% for message in messages %} <div
+					class="alert alert-{{ message.tags }} alert-dismissible fade show">
+					{{ message }}
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div> {% endfor %} {% endif %}
+			</form>
+		</div>
+	</div>
+</div>
+</div> {% endblock %}

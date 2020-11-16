@@ -1,0 +1,21 @@
+{% extends "superadmin/base.html" %}  {% load crispy_forms_tags %} {% block content %}
+
+<body>
+	<div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+				<div class="d-flex justify-content-center">
+
+
+					<h3 id="form-title">Hello</h3>
+				</div>
+				<div class="d-flex justify-content-center form_container">
+                        <h2 class="text-black"> {{user.user_name.first_name}}</br>{{user.user_name.last_name}}    </h2>
+                        <h3 class="text-secondary"> 
+
+				</div>
+	
+			</div>
+		</div>
+	</div>
+	{% endblock %}
