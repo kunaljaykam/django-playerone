@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'nextTechs.wsgi.application'
+WSGI_APPLICATION = 'playerone.wsgi.application'
 
 
 # Database
